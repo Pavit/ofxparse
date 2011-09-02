@@ -91,6 +91,7 @@ class Security:
         self.name = name
         self.ticker = ticker
         self.memo = memo
+<<<<<<< HEAD
         
 class Tranitem:
     def __init__(self, fitid, uniqueid, units, memo, type):
@@ -100,6 +101,9 @@ class Tranitem:
         self.memo = memo
         self.type = type
         
+=======
+
+>>>>>>> d5cc076b851a797113cbf480f761984ee92f3945
 class Statement(object):
     def __init__(self):
         self.start_date = ''
@@ -126,8 +130,12 @@ class InvestmentTransaction(object):
         self.security = ''
         self.units = decimal.Decimal(0)
         self.unit_price = decimal.Decimal(0)
+<<<<<<< HEAD
         self.type = ''
     
+=======
+
+>>>>>>> d5cc076b851a797113cbf480f761984ee92f3945
 class Position(object):
     def __init__(self):
         self.security = ''
@@ -175,6 +183,7 @@ class OfxParser(object):
             else:
                 ofx_obj.security_list = None
             return ofx_obj
+<<<<<<< HEAD
             #-----Trying to add a transaction list
             invtranlist_ofx = ofx.find('invtranlist')
             if invtranlist_ofx:
@@ -183,6 +192,8 @@ class OfxParser(object):
                 ofx_obj.transaction_list = []
             return ofx_obj
             #-----Trying to add a transaction list
+=======
+>>>>>>> d5cc076b851a797113cbf480f761984ee92f3945
         return ofx_obj
     
     @classmethod
@@ -236,6 +247,7 @@ class OfxParser(object):
         return securityList
 
     @classmethod
+<<<<<<< HEAD
     def parseInvtranlist(cls_, invtranlist_ofx):
         transactionList = []
         for buymf_ofx in invtranlist_ofx.findAll('buymf'):
@@ -254,6 +266,8 @@ class OfxParser(object):
         return transactionList
 
     @classmethod
+=======
+>>>>>>> d5cc076b851a797113cbf480f761984ee92f3945
     def parseInvestmentPosition(cls_, ofx):
         position = Position()
         tag = ofx.find('uniqueid')
@@ -276,9 +290,12 @@ class OfxParser(object):
         tag = ofx.find('uniqueid')
         if (hasattr(tag, 'contents')):
             transaction.security = tag.contents[0].strip()
+<<<<<<< HEAD
         tag = ofx.find('buytype')
         if (hasattr(tag, 'contents')):
             transaction.type = tag.contents[0].strip()
+=======
+>>>>>>> d5cc076b851a797113cbf480f761984ee92f3945
         tag = ofx.find('units')
         if (hasattr(tag, 'contents')):
             transaction.units = decimal.Decimal(tag.contents[0].strip())
